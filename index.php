@@ -7,7 +7,7 @@
       <meta name="description" content="Neuron Finance is a finance, corporate and business HTML template">
       <meta name="keywords" content="advisor, corporate accountant, finance, financial, insurance, investment, consultation">
       <meta name="author" content="trendytheme.net">
-      <title>Neuron Finance</title>
+      
       <!--  favicon -->
       <link rel="shortcut icon" href="assets/<?php echo get_template_directory_uri()?>/assets/img/ico/favicon.png">
       <!--  apple-touch-icon -->
@@ -115,28 +115,11 @@
                </div>
                <!-- End Header Navigation -->
                <!-- Collect the nav links, forms, and other content for toggling -->
-               <div class="collapse navbar-collapse" id="navbar-menu">
-                  <ul class="nav navbar-nav navbar-right" data-in="" data-out="">
-                     <li class="active"><a href="index.html">Home</a></li>
-                     <li><a href="about.html">About Us</a></li>
-                     <li><a href="services.html">Services</a></li>
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Works</a>
-                        <ul class="dropdown-menu">
-                           <li><a href="portfolio.html">Work Showcase</a></li>
-                           <li><a href="portfolio-details.html">Work Details</a></li>
-                        </ul>
-                     </li>
-                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Press &amp; News</a>
-                        <ul class="dropdown-menu">
-                           <li><a href="blog.html">News Standard</a></li>
-                           <li><a href="blog-details.html">News Details</a></li>
-                           <li><a href="typography.html">Typography</a></li>
-                        </ul>
-                     </li>
-                     <li><a href="contact.html">Contact</a></li>
-                  </ul>
+               <div class="collapse navbar-collapse" id="navbar-menu">                                    
+                     <?php wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'menu_class'     => 'nav navbar-nav navbar-right'
+                     )); ?>                  
                </div>
                <!-- /.navbar-collapse -->
             </div>

@@ -64,5 +64,27 @@ function neuron_custom_post(){
 		)
 	));
 
+	register_post_type('feature',array(
+		'public'   => true,
+		'show_ui'  => true,
+		'supports' => array('title','editor','thumbnail','page-attributes'),
+		'labels'   => array(
+			'name' 			=> __('Features','neuron'),
+			'singular_name' => __('Feature','neuron'),
+		)
+	));
+
+	register_post_type('service',array(
+		'public'   => true,
+		'show_ui'  => true,
+		'supports' => array('title','editor','thumbnail','page-attributes'),
+		'labels'   => array(
+			'name' 			=> __('Services','neuron'),
+			'singular_name' => __('Service','neuron'),
+		)
+	));
+
+
+
 }
 add_action('init','neuron_custom_post');

@@ -181,35 +181,26 @@
             </div>
             <div class="row">
                <!-- single intro -->
-               <div class="col-md-4">
-                  <div class="single-intro">
-                     <div class="intro-img intro-bg1"></div>
-                     <div class="intro-details text-center">
-                        <h3>About Business</h3>
-                        <p>Seamlessly envisioneer extensive interfaces and back wardcompatible applications. Proactively promote timely best.</p>
+               <?php 
+                  global $post;
+                  $args = array(
+                     'posts_per_page' => 3,
+                     'post_type'      => 'feature',
+                     'orderby'        => 'menu_order',
+                     'order'          => 'ASC'
+                  );
+                  $myposts = get_posts($args);
+                  foreach($myposts as $post) : setup_postdata($post); ?>                
+                  <div class="col-md-4">
+                     <div class="single-intro">
+                        <div class="intro-img" style="background-image: url('<?php the_post_thumbnail_url('medium'); ?>')""></div>
+                        <div class="intro-details text-center">
+                           <h3><?php the_title(); ?></h3>
+                           <?php the_content(); ?>
+                        </div>
                      </div>
                   </div>
-               </div>
-               <!-- single intro -->
-               <div class="col-md-4">
-                  <div class="single-intro">
-                     <div class="intro-img intro-bg2"></div>
-                     <div class="intro-details text-center">
-                        <h3>Business Growth</h3>
-                        <p>Seamlessly envisioneer extensive interfaces and back wardcompatible applications. Proactively promote timely best.</p>
-                     </div>
-                  </div>
-               </div>
-               <!-- single intro -->
-               <div class="col-md-4">
-                  <div class="single-intro">
-                     <div class="intro-img intro-bg3"></div>
-                     <div class="intro-details text-center">
-                        <h3>Sustainability</h3>
-                        <p>Seamlessly envisioneer extensive interfaces and back wardcompatible applications. Proactively promote timely best.</p>
-                     </div>
-                  </div>
-               </div>
+            <?php endforeach; wp_reset_query(); ?>               
             </div>
          </div>
       </section>
@@ -227,7 +218,7 @@
                </div>
                <div class="col-md-6">
                   <div class="block-img">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/homepageblock.jpg" alt="" />
+                     <img src="<?php echo get_template_directory_uri()?>/assets/img/homepageblock.jpg" alt="" />
                   </div>
                </div>
             </div>
@@ -247,53 +238,24 @@
             </div>
             <div class="row">
                <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img class="hvr-buzz-out" src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/1.png" alt="" />
-                     <h3><a href="#">Performance</a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
+               <?php 
+                  global $post;
+                  $args = array(
+                     'posts_per_page' => 6,
+                     'post_type'      => 'service',
+                     'orderby'        => 'menu_order',
+                     'order'          => 'ASC'
+                  );
+                  $myposts = get_posts($args);
+                  foreach($myposts as $post) : setup_postdata($post); ?>  
+                  <div class="col-sm-6 col-md-4">
+                     <div class="services-tiem">                        
+                        <?php the_post_thumbnail('thumbnail', array('class'=>'hvr-buzz-out')); ?>                        
+                        <h3><a href="<?php echo get_post_meta($post->ID,'link', true); ?>"><?php the_title(); ?></a></h3>
+                        <?php the_content(); ?>
+                     </div>
                   </div>
-               </div>
-               <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/2.png" alt="" />
-                     <h3><a href="#">Sustainability</a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
-                  </div>
-               </div>
-               <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/3.png" alt="" />
-                     <h3><a href="#">Web Design</a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
-                  </div>
-               </div>
-               <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/4.png" alt="" />
-                     <h3><a href="#">Web Development</a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
-                  </div>
-               </div>
-               <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/5.png" alt="" />
-                     <h3><a href="#">Branding Design</a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
-                  </div>
-               </div>
-               <!-- single service -->
-               <div class="col-sm-6 col-md-4">
-                  <div class="services-tiem">
-                     <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/services/6.png" alt="" />
-                     <h3><a href="#">Marketing </a></h3>
-                     <p>Dynamically fabricate innovative products and distributed web services. Distinctively pontificate.</p>
-                  </div>
-               </div>
+               <?php endforeach; wp_reset_query(); ?>                     
             </div>
          </div>
       </section>
@@ -304,11 +266,11 @@
             <div class="row">
                <div class="col-md-12">
                   <div class="all-client-logo">
-                     <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/cling-logo/1.jpg" alt="" /></a>
-                     <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/cling-logo/2.jpg" alt="" /></a>
-                     <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/cling-logo/3.jpg" alt="" /></a>
-                     <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/cling-logo/4.jpg" alt="" /></a>
-                     <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/cling-logo/5.jpg" alt="" /></a>
+                     <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/cling-logo/1.jpg" alt="" /></a>
+                     <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/cling-logo/2.jpg" alt="" /></a>
+                     <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/cling-logo/3.jpg" alt="" /></a>
+                     <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/cling-logo/4.jpg" alt="" /></a>
+                     <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/cling-logo/5.jpg" alt="" /></a>
                   </div>
                </div>
                <!-- /.col-md-12 -->
@@ -326,13 +288,13 @@
                   <!-- start single footer widget -->
                   <div class="col-sm-6 col-md-4">
                      <div class="footer-widget about-us">
-                        <a href="index.html"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/logo-white.png" alt="" /></a>
+                        <a href="index.html"><img src="<?php echo get_template_directory_uri()?>/assets/img/logo-white.png" alt="" /></a>
                         <p>Collaboratively create resource sucking manufactured products and worldwide e-services. Seamlessly revol tionize holistic data rather than intermandated results. Energistically innovate open-source systems for performance based total.</p>
                         <div class="online-card">
-                           <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/online-card/1.png" alt="" /></a>
-                           <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/online-card/2.png" alt="" /></a>
-                           <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/online-card/3.png" alt="" /></a>
-                           <a href="#"><img src="assets/<?php echo get_template_directory_uri()?>/assets/img/online-card/4.png" alt="" /></a>
+                           <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/online-card/1.png" alt="" /></a>
+                           <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/online-card/2.png" alt="" /></a>
+                           <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/online-card/3.png" alt="" /></a>
+                           <a href="#"><img src="<?php echo get_template_directory_uri()?>/assets/img/online-card/4.png" alt="" /></a>
                         </div>
                      </div>
                   </div>
@@ -359,17 +321,17 @@
                         <h3>Latest Post</h3>
                         <ul>
                            <li>
-                              <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/latest-post/1.png" alt="" />
+                              <img src="<?php echo get_template_directory_uri()?>/assets/img/latest-post/1.png" alt="" />
                               <p><a href="#">Headset No Longer Wire For Sound</a></p>
                               <span>12 May 2016</span>
                            </li>
                            <li>
-                              <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/latest-post/2.png" alt="" />
+                              <img src="<?php echo get_template_directory_uri()?>/assets/img/latest-post/2.png" alt="" />
                               <p><a href="#">Headset No Longer Wire For Sound</a></p>
                               <span>12 May 2016</span>
                            </li>
                            <li>
-                              <img src="assets/<?php echo get_template_directory_uri()?>/assets/img/latest-post/3.png" alt="" />
+                              <img src="<?php echo get_template_directory_uri()?>/assets/img/latest-post/3.png" alt="" />
                               <p><a href="#">Headset No Longer Wire For Sound</a></p>
                               <span>12 May 2016</span>
                            </li>

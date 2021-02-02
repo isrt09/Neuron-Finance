@@ -112,3 +112,8 @@ function neuron_widgets_init(){
 
 }
 add_action('widgets_init','neuron_widgets_init');
+
+function neuron_shortcode(){
+	
+}
+add_shortcode('','neuron_shortcode');

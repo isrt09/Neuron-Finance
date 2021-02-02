@@ -1,7 +1,7 @@
 # Neuron-Finance
-  - Neuron-Finance Corporation LTD
+  Neuron-Finance Corporation LTD
   - Theme Bootstrapping
-  - Register Menu
+  - Register Menu 
   - Custom Post  : Slider
   - Custom Field : Slider
-  - 
+  - Register Widgets

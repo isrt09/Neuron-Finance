@@ -83,8 +83,32 @@ function neuron_custom_post(){
 			'singular_name' => __('Service','neuron'),
 		)
 	));
+}
+add_action('init','neuron_custom_post');
 
+// Register Widgets
+
+function neuron_widgets_init(){
+	register_sidebar(array(
+        'name'          =>  esc_html__('Footer One','neuron'),
+        'id' 			=> 'footer-1', 
+        'description' 	=> esc_html__('Add Widgets Footer One','neuron'),
+        'before_widget' => '<div id=%1$s class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+    ));
+
+	register_sidebar(array(
+        'name'          =>  esc_html__('Footer Two','neuron'),
+        'id' 			=> 'footer-2', 
+        'description' 	=> esc_html__('Add Widgets Footer Two','neuron'),
+        'before_widget' => '<div class="footer-widget usefull-link">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ));
 
 
 }
-add_action('init','neuron_custom_post');
+add_action('widgets_init','neuron_widgets_init');

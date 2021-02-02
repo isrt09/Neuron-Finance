@@ -47,6 +47,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
 @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i');
 
 /* ================= General ==================== */
+.alignright {float: right; margin-left:20px}
+.alignleft  {float: left; margin-right:20px}
+.aligncenter {float: none; display: block; margin: 0 auto;}
 html,
 body { 
 	height: 100% 

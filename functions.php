@@ -83,6 +83,15 @@ function neuron_custom_post(){
 			'singular_name' => __('Service','neuron'),
 		)
 	));
+	 register_post_type('work',array(
+		'public'   => true,	
+		'show_ui'  => true,	
+		'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
+		'labels'   => array(
+			'name' 			=> __('Works','neuron'),
+			'singular_name' => __('Work','neuron'),
+		)
+	));
 }
 add_action('init','neuron_custom_post');
 
@@ -107,8 +116,7 @@ function neuron_widgets_init(){
         'after_widget'  => '</div>',
         'before_title'  => '<h3>',
         'after_title'   => '</h3>',
-    ));
-
+    ));   
 
 }
 add_action('widgets_init','neuron_widgets_init');
@@ -117,3 +125,6 @@ function neuron_shortcode(){
 	
 }
 add_shortcode('','neuron_shortcode');
+
+// Setup Codestar Framework
+require get_template_directory() . '/inc/cs-framework/cs-framework.php';
